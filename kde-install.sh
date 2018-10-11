@@ -1,0 +1,57 @@
+#!/bin/bash
+# kde-installer (c) Karim 'TheSola10' Vergnes <thesola10@bobile.fr>
+# License: GNU GPLv3
+# Requires Fedora's dnf
+
+IFS=$'\n' # String divider
+
+if ! which blih > /dev/null 2>&1 || ! which dnf > /dev/null 2>&1
+then
+    echo "This program is only compatible with Fedora as distributed by Epitech. Contact me at <karim.vergnes@epitech.eu> for more info."
+    exit 3
+else if [[ $UID != 0 ]]
+then
+    echo "This program must be run as root. Try \`sudo $0'."
+fi
+
+# Installer
+
+__install()
+{
+    dnf install @kde-desktop breeze-gtk                                      &&\
+    systemctl disable lightdm.service                                        &&\
+    systemctl enable sddm.service                                            &&\
+
+    dconf write org.gnome.desktop.interface gtk-theme "Breeze"               &&\
+    echo "include \"/usr/share/themes/Breeze/gtk-2.0/gtkrc\" \
+          style \"user-font\" \
+          {\
+              font_name=\"Cantarell Regular\" \
+          }\
+          widget_class \"*\" style \"user-font\"\
+          gtk-font-name=\"Cantarell Regular 11\" \
+          gtk-theme-name=\"Breeze\" \
+          gtk-icon-theme=\"breeze\"" > /home/$SUDO_USER/.gtkrc-2.0
+}
+
+
+if [[ $1 == "-h" ]] || [[ $1 == "--help" ]] # Help
+then
+    echo "== kde-installer. (c) Karim Vergnes <karim.vergnes@epitech.eu> =="
+    echo
+    echo "\"It's better than XFCE!\" -- me, and probably you afterwards."
+    echo
+    echo "kde-installer is used this way: "
+    echo "kde-installer [--help|--phony]"
+    echo
+    echo "Options:"
+    echo "  -h/--help  - Show this help"
+    echo "  -p/--phony - Only print the commands to execute"
+elif [[ $1 == "-p" ]] || [[ $1 == "--phony" ]] # No args
+then
+    type __install 
+else
+    __install && echo "Done! The changes will appear once you reboot."
+fi
+
+
