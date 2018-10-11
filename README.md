@@ -1,37 +1,9 @@
-## Welcome to GitHub Pages
+# The KDE installer for EPITECH's Fedora distro
 
-You can use the [editor on GitHub](https://github.com/Thesola10/kde-installer/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Here at EPITECH, we are given a USB drive with Fedora at the beginning of our first year. The problem? The desktop that ships with it is **UGLY**.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+So this script installs and cleans up KDE _automagically_, for your enjoyment! :)
 
-### Markdown
+## THIS SCRIPT WILL MODIFY SYSTEM FILES. DO **NOT** INTERRUPT IT, OR YOU WILL BE LEFT WITH NO DESKTOP WHATSOEVER.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Thesola10/kde-installer/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+If you wanna see what it does, ~~look at the source code ya doofus~~ simply run `kde-install.sh --phony`.
