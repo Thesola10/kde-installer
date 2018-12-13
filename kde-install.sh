@@ -1,6 +1,6 @@
 #!/bin/bash
 # kde-installer (c) Karim 'TheSola10' Vergnes <thesola10@bobile.fr>
-# License: GNU GPLv3
+# License: WTFPL 1.0
 # Requires Fedora's dnf
 
 if ! which blih > /dev/null 2>&1 || ! which dnf > /dev/null 2>&1
