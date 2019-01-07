@@ -19,7 +19,24 @@ __install()
 {
     dnf install "@kde-desktop" breeze-gtk                                    &&\
     systemctl disable lightdm.service                                        &&\
-    systemctl enable sddm.service                                           #&&\
+    systemctl enable sddm.service                                            &&\
+    cat > /home/$SUDO_USER/.gtkrc-2.0 <<EOF 
+include "/usr/share/themes/Breeze/gtk-2.0/gtkrc"
+style "user-font"
+{
+    font_name="Cantarell Regular"
+}
+widget_class "*" style "user-font"
+gtk-font-name="Cantarell Regular 11"
+gtk-theme-name="Breeze"
+gtk-icon-theme="breeze"
+EOF
+    cat > /home/$SUDO_USER/.config/gtk-3.0/settings.ini <<EOF
+[Settings]
+gtk-font-name=Cantarell Regular 11
+gtk-theme-name=Breeze
+gtk-icon-theme-name=Breeze
+EOF
 }
 
 
